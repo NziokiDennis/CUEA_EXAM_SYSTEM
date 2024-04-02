@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | CUEA Exams Portal</title>
+  <!-- Bootstrap CSS link -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom CSS for additional styling */
+    body {
+      background-color: #d3d3d3; /* Set background color for the entire page to a duller shade */
+    }
+    .logo {
+      width: 150px; /* Increase logo size */
+      margin-bottom: 10px; /* Decrease space between logo and separator line */
+    }
+    .login-container {
+      max-width: 400px; /* Set max width of the login container */
+      margin: 0 auto; /* Adjust margin for top and bottom spacing */
+      padding: 20px; /* Adjust padding for top and bottom spacing */
+      border-radius: 10px; /* Add border-radius */
+      background-color: #f8f9fa; /* Add background color for the login container */
+    }
+    .divider {
+      border-top: 2px solid #000; /* Thick line separator */
+      margin: 0 auto; /* Center the line */
+      width: 30%; /* Set width of the line */
+      margin-bottom: 20px; /* Add spacing below separator */
+    }
+    .form-control {
+      border: none; /* Remove border from input fields */
+      border-bottom: 2px solid #000; /* Add thicker underline effect */
+      border-radius: 0; /* Remove border-radius */
+    }
+    .form-control:focus {
+      border-color: #000; /* Change border color on focus */
+      box-shadow: none; /* Remove box-shadow on focus */
+    }
+    .eye-icon {
+      position: absolute; /* Position the eye icon */
+      right: 0; /* Align the eye icon to the right */
+      top: calc(50% - 10px); /* Vertically center the eye icon */
+      cursor: pointer;
+    }
+    .btn {
+      border-radius: 20px; /* Make login button more oval */
+    }
+    .reset-password-link {
+      text-align: center; /* Center align the reset password link */
+    }
+    .footer {
+      text-align: center; /* Center the footer */
+      margin-top: 20px; /* Add spacing above footer */
+    }
+    .footer small {
+      font-size: 12px; /* Decrease font size for CUEA Exams Portal */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Container -->
+
+  <div class="login-container">
+    <!-- Logo -->
+    <div class="text-center mb-4">
+      <img src="CUEA-svg-cropped.png" alt="CUEA Exams Portal Logo" class="logo">
+    </div>
+
+    <!-- Thick line separator -->
+    <div class="divider"></div>
+
+    <!-- Heading -->
+    <h5 class="text-center mb-4">CUEA EXAM PORTAL</h5>
+
+    <!-- Login Form -->
+    <form>
+      <!-- Staff Number -->
+      <div class="form-group">
+        <label for="staffNumber">Staff Number</label>
+        <input type="text" class="form-control" id="staffNumber" placeholder="Enter your staff number" required>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group position-relative"> <!-- Added position relative for eye icon positioning -->
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+        <span class="eye-icon" id="togglePassword"> <!-- Position eye icon -->
+          <i class="fa fa-eye"></i> <!-- Eye icon -->
+        </span>
+      </div>
+
+      <!-- Login Button -->
+      <button type="submit" class="btn btn-primary btn-block">Login</button>
+
+      <!-- Reset Password Link -->
+      <div class="form-group reset-password-link">
+        <a href="#">Reset Password?</a>
+      </div>
+
+      <!-- Remember Me Checkbox -->
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="rememberMe">
+        <label class="form-check-label" for="rememberMe">Remember me</label>
+      </div>
+    </form>
+
+    <!-- Footer -->
+    <footer class="footer">
+    All rights reserved &copy; <span id="currentYear"></span>. Managed by <a href="your_portfolio_url_here">AlphaCentauri Technologies</a>.     
+    </footer>
+  </div>
+
+  <!-- Bootstrap JS script (Optional, for advanced components) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Font Awesome script for icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <!-- jQuery script (Required for Bootstrap JS components) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    // JavaScript code to update current year in footer
+    document.getElementById('currentYear').innerText = new Date().getFullYear();
+
+    // JavaScript code to toggle password visibility
+    $('#togglePassword').click(function(){
+      var passwordField = $('#password');
+      var passwordFieldType = passwordField.attr('type');
+      if(passwordFieldType == 'password') {
+        passwordField.attr('type', 'text');
+        $(this).find('i').removeClass('fa-eye').addClass('fa-eye-slash'); // Change eye icon to slash
+      } else {
+        passwordField.attr('type', 'password');
+        $(this).find('i').removeClass('fa-eye-slash').addClass('fa-eye'); // Change slash icon to eye
+      }
+    });
+  </script>
+</body>
+</html>
